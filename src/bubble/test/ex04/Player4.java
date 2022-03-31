@@ -1,9 +1,10 @@
-package bubble.test.ex03;
+package bubble.test.ex04;
+
 
 import javax.swing.*;
 
 //class Player -> new 가능한 애들이고  게임에 존재할 수 있다.(추상메서드를 가질 수 없다.)
-public class Player extends JLabel implements Moveable {
+public class Player4 extends JLabel implements Moveable4 {
 
     //위치 상태
     private int x;
@@ -19,7 +20,7 @@ public class Player extends JLabel implements Moveable {
     private ImageIcon playerR;
     private ImageIcon playerL;
 
-    public Player() {
+    public Player4() {
         initObject();
         initSetting();
     }
@@ -48,20 +49,30 @@ public class Player extends JLabel implements Moveable {
     //이벤트 핸들러
     @Override
     public void left() {
-        setIcon(playerL); // 캐릭터가 왼쪽으로 보게한다.
-        x = x - 10;
-        setLocation(x,y);
+        System.out.println("left실행 될  : 스레드 생성 ");
+        new Thread(()-> {   //익명클래스, 람다식
+            setIcon(playerL); // 캐릭터가 왼쪽으로 보게한다.
+            x = x - 1;
+            setLocation(x,y);
+            System.out.println("left 스레드 종료 ");
+        }).start();
+
     }
 
     @Override
     public void right() {
-        setIcon(playerR);
-        x = x + 10;
-        setLocation(x,y);
+        System.out.println("right");
+        new Thread(()-> {
+            setIcon(playerR);
+            x = x + 1;
+            setLocation(x,y);
+        }).start();
+
     }
 
     @Override
     public void up() {
+
         System.out.println("점프");
     }
 
