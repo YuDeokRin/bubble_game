@@ -3,10 +3,12 @@ package bubble.test.ex02;
 import javax.swing.*;
 
 public class Player extends JLabel {
+
     private int x;
     private int y;
 
-    private ImageIcon playerR, playerL;
+    private ImageIcon playerR;
+    private ImageIcon playerL;
 
     public Player(){
         initObject();
@@ -22,7 +24,7 @@ public class Player extends JLabel {
         x = 55;
         y = 535;
 
-        setIcon(playerR);
+        this.setIcon(playerR);
         setSize(50,50);
         setLocation(x,y);
     }
