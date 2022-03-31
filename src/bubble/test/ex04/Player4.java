@@ -1,9 +1,13 @@
 package bubble.test.ex04;
 
 
+import lombok.Getter;
+import lombok.Setter;
+
 import javax.swing.*;
 
 //class Player -> new 가능한 애들이고  게임에 존재할 수 있다.(추상메서드를 가질 수 없다.)
+@Getter @Setter // Getter, Setter 를 입력하는 이유 left, right, up, down에 접근하기 위해서
 public class Player4 extends JLabel implements Moveable4 {
 
     //위치 상태
@@ -49,12 +53,19 @@ public class Player4 extends JLabel implements Moveable4 {
     //이벤트 핸들러
     @Override
     public void left() {
-        System.out.println("left실행 될  : 스레드 생성 ");
+        System.out.println("left ");
+        left = true; // 왼쪽으로 움직이는 상태
         new Thread(()-> {   //익명클래스, 람다식
-            setIcon(playerL); // 캐릭터가 왼쪽으로 보게한다.
-            x = x - 1;
-            setLocation(x,y);
-            System.out.println("left 스레드 종료 ");
+            while(left){
+                setIcon(playerL); // 캐릭터가 왼쪽으로 보게한다.
+                x = x - 1;
+                setLocation(x,y);
+                try {
+                    Thread.sleep(10); //0.01초
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+            }
         }).start();
 
     }
@@ -62,10 +73,18 @@ public class Player4 extends JLabel implements Moveable4 {
     @Override
     public void right() {
         System.out.println("right");
+        right = true;
         new Thread(()-> {
-            setIcon(playerR);
-            x = x + 1;
-            setLocation(x,y);
+            while(right){
+                setIcon(playerR);
+                x = x + 1;
+                setLocation(x,y);
+                try {
+                    Thread.sleep(10); //0.01초
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+            }
         }).start();
 
     }

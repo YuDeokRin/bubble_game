@@ -34,9 +34,10 @@ public class BubbleFrame4 extends JFrame {
     }
 
     private void initListener(){
-        //addKeyListener는 리스너를 만듬
-        //()안에 이벤트핸들러 등록 -> keypress 스택 만듬
             addKeyListener(new KeyAdapter() {
+
+
+                //키보드 클릭 이벤트 핸들러
                @Override
                 public void keyPressed(KeyEvent e) {
                    //getKeyCode() : 방향 버튼을 누를 시 그 버튼이 무슨 값을 반환해주는지 알 수 있다.
@@ -46,15 +47,33 @@ public class BubbleFrame4 extends JFrame {
 
                    switch(e.getKeyCode()){
                        case KeyEvent.VK_LEFT:
-                           player4.left();
+                           if(!player4.isLeft()){
+                               player4.left();
+                           }
                            break;
                        case KeyEvent.VK_RIGHT:
-                           player4.right();
+                           if(!player4.isRight()){ //isRight()가 true가 아니라면
+                                player4.right(); // Right는 한번만 실행된다. -> 메소드를 계속 호출하면 과부하가 심해지기때문에
+                           }
+
                            break;
                        case KeyEvent.VK_UP:
                            player4.up();
                            break;
                    }
+                }
+
+                // 키보드 해제(키보드를 땠을 때) 이벤트 핸들러
+                @Override
+                public void keyReleased(KeyEvent e) {
+                    switch (e.getKeyCode()){
+                        case KeyEvent.VK_LEFT:
+                            player4.setLeft(false); // 키보드를 땟을 때 -> 움직이지 않기
+                            break;
+                        case KeyEvent.VK_RIGHT:
+                            player4.setRight(false); // 키보드를 땟을 때 -> 움직이지 않기
+                            break;
+                    }
                 }
             });
     }
