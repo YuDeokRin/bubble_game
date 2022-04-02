@@ -31,6 +31,7 @@ public class Player6 extends JLabel implements Moveable4 {
     public Player6() {
         initObject();
         initSetting();
+        initBackgroundPlayerService();
     }
 
     private void initObject() {
@@ -40,7 +41,7 @@ public class Player6 extends JLabel implements Moveable4 {
 
     //게임이 시작하는 상태
     private void initSetting() {
-        x = 65;
+        x = 80;
         y = 535;
 
         //게임 시작 캐릭터의 기본값 = 아무것도 안하고 있는 상
@@ -52,6 +53,9 @@ public class Player6 extends JLabel implements Moveable4 {
         setIcon(playerR);
         setSize(50, 50);
         setLocation(x, y);
+    }
+    private void initBackgroundPlayerService(){
+        new Thread(new BackgroundPlayerService(this)).start();
     }
 
     //이벤트 핸들러

@@ -22,7 +22,7 @@ public class BubbleFrame6 extends JFrame {
 
 
     private void initObject() {
-        backgroundMap = new JLabel(new ImageIcon("image/test.png"));
+        backgroundMap = new JLabel(new ImageIcon("image/backgroundMap.png"));
         setContentPane(backgroundMap);
         player6 = new Player6();
         add(player6);// player를 패널(JLabel) 덮붙이기
