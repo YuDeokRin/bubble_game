@@ -1,18 +1,18 @@
-package bubble.test.ex08;
+package bubble.test.ex09;
 
 
-import bubble.test.ex08.Player8;
+import bubble.test.ex09.Player9;
 
 import javax.swing.*;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 
-public class BubbleFrame8 extends JFrame {
+public class BubbleFrame9 extends JFrame {
 
     private JLabel backgroundMap;
-    private Player8 player8;
+    private Player9 player9;
 
-    public BubbleFrame8() {
+    public BubbleFrame9() {
         initObject();
         initSetting();
         initListener();
@@ -23,8 +23,8 @@ public class BubbleFrame8 extends JFrame {
     private void initObject() {
         backgroundMap = new JLabel(new ImageIcon("image/backgroundMap.png"));
         setContentPane(backgroundMap);
-        player8 = new Player8();
-        add(player8);// player를 패널(JLabel) 덮붙이기
+        player9 = new Player9();
+        add(player9);// player를 패널(JLabel) 덮붙이기
 
     }
 
@@ -44,20 +44,20 @@ public class BubbleFrame8 extends JFrame {
 
                    switch(e.getKeyCode()){
                        case KeyEvent.VK_LEFT:
-                           if(!player8.isLeft() && !player8.isLeftWallCrash()){
-                               player8.left();
+                           if(!player9.isLeft() && !player9.isLeftWallCrash()){
+                               player9.left();
                            }
                            break;
                        case KeyEvent.VK_RIGHT:
-                           if(!player8.isRight() && !player8.isRightWallCrash()){ //isRight()가 true가 아니라면
-                                player8.right(); // Right는 한번만 실행된다. -> 메소드를 계속 호출하면 과부하가 심해지기때문에
+                           if(!player9.isRight() && !player9.isRightWallCrash()){ //isRight()가 true가 아니라면
+                                player9.right(); // Right는 한번만 실행된다. -> 메소드를 계속 호출하면 과부하가 심해지기때문에
                            }
 
                            break;
                        case KeyEvent.VK_UP:
                            //점프 상태가 아닐 때(up, down)만 up을 할 수 있다.
-                           if(!player8.isUp() && !player8.isDown()){
-                           player8.up();
+                           if(!player9.isUp() && !player9.isDown()){
+                           player9.up();
                            }
                            break;
                    }
@@ -68,10 +68,10 @@ public class BubbleFrame8 extends JFrame {
                 public void keyReleased(KeyEvent e) {
                     switch (e.getKeyCode()){
                         case KeyEvent.VK_LEFT:
-                            player8.setLeft(false); // 키보드를 땟을 때 -> 움직이지 않기
+                            player9.setLeft(false); // 키보드를 땟을 때 -> 움직이지 않기
                             break;
                         case KeyEvent.VK_RIGHT:
-                            player8.setRight(false); // 키보드를 땟을 때 -> 움직이지 않기
+                            player9.setRight(false); // 키보드를 땟을 때 -> 움직이지 않기
                             break;
                     }
                 }
@@ -79,6 +79,6 @@ public class BubbleFrame8 extends JFrame {
     }
 
     public static void main(String[] args) {
-        new BubbleFrame8();
+        new BubbleFrame9();
     }
 }

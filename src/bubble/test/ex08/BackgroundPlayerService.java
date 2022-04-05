@@ -26,30 +26,30 @@ public class BackgroundPlayerService implements Runnable{
 
     @Override
     public void run() {
-
         while(true){
+                // 하얀색 : -1
+                // 빨간색 : -1237980
+                // 노랑색 : -3584
+                // 파랑색 : -12629812
+
             //색상 확인
             Color leftColor = new Color(image.getRGB(player8.getX() - 10 , player8.getY() + 25));
             Color rightColor = new Color(image.getRGB(player8.getX() + 50 + 15 , player8.getY()+ 25));
             // -2가 나온다는 의미는 바닥에 색깔 없이 흰색
-            int bottomColor =  image.getRGB(player8.getX() + 10, player8.getY()+ 50 + 5) // -1 경우
-                    + image.getRGB(player8.getX() + 50 - 10 , player8.getY() + 50 + 5) ; // - 1 경우
+            int bottomColor =  image.getRGB(player8.getX() + 10, player8.getY() + 50 + 5) //캐릭터 제일 왼쪽 하단,  -1 경우
+                    + image.getRGB(player8.getX() + 50 -  10 , player8.getY() +  50 + 5) ; //캐릭터 제일 오른쪽 하단,  - 1 경우
 
             //바닥 충돌 확인
             if (bottomColor != -2){ // -2가 아니면  색깔이 무조건 있다.
-                System.out.println("바텀 컬러 : " + bottomColor);
-                System.out.println("바닥에 충돌함 ");
                 player8.setDown(false);
             }
 
 
             //외벽 충돌 확인
             if (leftColor.getRed() == 255 && leftColor.getGreen() == 0 && leftColor.getBlue() == 0 ){
-                System.out.println("왼쪽 벽에 충돌");
                 player8.setLeftWallCrash(true);
                 player8.setLeft(false);
             }else if (rightColor.getRed() == 255 && rightColor.getGreen() == 0 && rightColor.getBlue() == 0 ){
-                System.out.println("오른쪽 벽에 충돌");
                 player8.setRightWallCrash(true );
                 player8.setRight(false);
             }else {
@@ -59,7 +59,7 @@ public class BackgroundPlayerService implements Runnable{
             }
 
             try {
-                Thread.sleep(50);
+                Thread.sleep(10);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }

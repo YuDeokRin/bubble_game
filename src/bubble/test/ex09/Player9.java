@@ -1,9 +1,8 @@
-package bubble.test.ex08;
+package bubble.test.ex09;
 
 
-import bubble.test.ex08.BackgroundPlayerService;
-import bubble.test.ex08.Moveable8;
-
+import bubble.test.ex09.BackgroundPlayerService;
+import bubble.test.ex09.Moveable9;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -11,7 +10,7 @@ import javax.swing.*;
 
 //class Player -> new 가능한 애들이고  게임에 존재할 수 있다.(추상메서드를 가질 수 없다.)
 @Getter @Setter // Getter, Setter 를 입력하는 이유 left, right, up, down에 접근하기 위해서
-public class Player8 extends JLabel implements Moveable8 {
+public class Player9 extends JLabel implements Moveable9 {
 
     //위치 상태
     private int x;
@@ -35,7 +34,7 @@ public class Player8 extends JLabel implements Moveable8 {
     private ImageIcon playerR;
     private ImageIcon playerL;
 
-    public Player8() {
+    public Player9() {
         initObject();
         initSetting();
         initBackgroundPlayerService();
@@ -107,7 +106,6 @@ public class Player8 extends JLabel implements Moveable8 {
     // up이 갖는 경우의 수 : left + up , right + up
     @Override
     public void up() {
-        System.out.println("up");
         up = true;
         new Thread(()->{
             //for로 돌리는 이유 : 끝이 있어야지 점프가 끝까지 안감.
@@ -130,7 +128,7 @@ public class Player8 extends JLabel implements Moveable8 {
 
     @Override
     public void down() {
-        System.out.println("down");
+
         down = true;
         new Thread(()->{
             while (down) { // while로 주면 down이 false이 나오면 캐릭터는 멈춘다.
