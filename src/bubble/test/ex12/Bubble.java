@@ -43,7 +43,7 @@ public class Bubble extends JLabel implements Moveable12 {
         bubbled = new ImageIcon("image/bubbled.png");
         bomb = new ImageIcon("image/bomb.png");
 
-        BackgroundBubbleService backgroundBubbleService = new BackgroundBubbleService(this);
+        backgroundBubbleService = new BackgroundBubbleService(this);
     }
 
     private void initSetting() {
@@ -119,6 +119,9 @@ public class Bubble extends JLabel implements Moveable12 {
             y--;
             setLocation(x, y);
 
+            if(backgroundBubbleService.topWall()){
+                break;
+            }
             try {
                 Thread.sleep(1);
             } catch (InterruptedException e) {
