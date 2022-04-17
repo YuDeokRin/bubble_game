@@ -1,9 +1,7 @@
-package bubble.test.ex14;
+package bubble.test.ex15;
 
 
-import bubble.test.ex14.BackgroundPlayerService;
-import bubble.test.ex14.Moveable14;
-import bubble.test.ex14.PlayerWay;
+import bubble.test.ex15.*;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -11,9 +9,9 @@ import javax.swing.*;
 
 //class Player -> new 가능한  애들이고  게임에 존재할 수 있다.(추상메서드를 가질 수 없다.)
 @Getter @Setter // Getter, Setter 를 입력하는 이유 left, right, up, down에 접근하기 위해서
-public class Player14 extends JLabel implements Moveable14 {
+public class Player15 extends JLabel implements Moveable15 {
 
-    private BubbleFrame14 mContext;
+    private BubbleFrame15 mContext;
 
     //위치 상태
     private int x;
@@ -41,7 +39,7 @@ public class Player14 extends JLabel implements Moveable14 {
     private ImageIcon playerR;
     private ImageIcon playerL;
 
-    public Player14(BubbleFrame14 mContext) {
+    public Player15(BubbleFrame15 mContext) {
         this.mContext = mContext;
         initObject();
         initSetting();
