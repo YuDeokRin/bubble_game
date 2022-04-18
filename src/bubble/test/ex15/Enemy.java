@@ -8,6 +8,7 @@ import javax.swing.*;
 
 // 적(Enemy)은 그림이 되어야하기 때문에 extends JLabel을 상속하고
 // 적(Enemy)은 행동의 제약이 필요하기 때문에 implements Moveable15가 필요하다.
+@Getter @Setter
 public class Enemy extends JLabel implements Moveable15 {
 
 
