@@ -7,4 +7,5 @@
 
 2. 적군 물방울 공격하기 완료
 
+![화면-기록-2022-04-18-오후-9 06 34](https://user-images.githubusercontent.com/56623911/163806180-38523b0b-25c1-4168-8bba-5f5469bb3eda.gif)
 
