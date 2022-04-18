@@ -4,11 +4,15 @@ package bubble.test.ex16;
 import bubble.test.ex16.BubbleFrame16;
 import bubble.test.ex16.EnemyWay;
 import bubble.test.ex16.Moveable16;
+import lombok.Getter;
+import lombok.Setter;
 
 import javax.swing.*;
 
 // 적(Enemy)은 그림이 되어야하기 때문에 extends JLabel을 상속하고
 // 적(Enemy)은 행동의 제약이 필요하기 때문에 implements Moveable15가 필요하다.
+@Getter
+@Setter
 public class Enemy extends JLabel implements Moveable16 {
 
 
@@ -28,6 +32,8 @@ public class Enemy extends JLabel implements Moveable16 {
     private boolean right;
     private boolean up;
     private boolean down;
+
+    private int state; // 0(살아있는 상태), 1(물방울에 갇힌 상태)
 
 
     //적군의 속도의상태
@@ -61,6 +67,7 @@ public class Enemy extends JLabel implements Moveable16 {
         up = false;
         down = false;
 
+        state = 0;
 
         enemyWay = EnemyWay.RIGHT; //방향
 
