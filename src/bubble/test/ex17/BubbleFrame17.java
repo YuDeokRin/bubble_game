@@ -33,6 +33,7 @@ public class BubbleFrame17 extends JFrame {
         add(player17);
         enemy = new Enemy(mContext);
         add(enemy);
+        new BGM();
     }
 
     private void initSetting() {
