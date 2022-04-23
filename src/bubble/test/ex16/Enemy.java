@@ -61,7 +61,7 @@ public class Enemy extends JLabel implements Moveable16 {
         x = 480;
         y = 178;
 
-        //게임 시작 캐릭터의 기본값 = 아무것도 안하고 있는 상
+        //게임 시작 캐릭터의 기본값 = 아무것도 안하고 있는 상태
         left = false;
         right = false;
         up = false;
